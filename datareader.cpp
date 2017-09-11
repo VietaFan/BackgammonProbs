@@ -11,24 +11,7 @@ void readInputData(ifstream &fin, char *arr) {
 	int nlines = *((int*)arr);
 	for (int i=0; i<nlines; ++i) {
 		fin.read(arr+64*i, 64);
-		/*for (int j=0; j<16; ++j) {
-			cout << hex << (((int)arr[64*i+j])&0xff) << ' ';
-		}
-		cout << endl;*/
 	}
-	/*char buf[4];
-	in.read(buf, 4);
-	int nlines = *((int*)buf);
-	cout << nlines << endl;
-	for (int i=0; i<nlines; ++i) {
-		in.read(arr+64*i, 64);
-		if (i == 123) {
-	for (int i=0; i<64; ++i)
-		cout << hex << (((int)arr[i])&0xff) << ' ';
-	cout << endl;
-}
-	}
-	cout << endl;*/
 }
 
 void getdist(int conv, char *arr, float *dist) {
@@ -66,24 +49,9 @@ int main() {
 	ifstream fin("bkgmdata.txt", ios::in | ios::binary);
 	init_choosedp(30);
 	init_combindiffs();
-/*	char arr[16];
-	fin.read(arr, 4);
-	for (int i=0; i<50; ++i) {
-		fin.read(arr, 16);
-		for (int j=0; j<16; ++j) {
-			cout << hex << (((int)arr[j])&0xff) << ' ';
-		}
-		cout << endl;
-	}*/
 	char* arr = new char[20000000];
 	readInputData(fin, arr);
 	fin.close();
-	//char buf[64];
-	//f/in.read(buf, 4);
-	//int nlines = *((int*)buf);
-	//cout << "number of lines = " << nlines << endl;
-	//fin.read(arr, 64);
-//	fin.close();
 	string s;
 	int a[13];
 	for (int i=0; i<13; i++)
@@ -98,9 +66,6 @@ int main() {
 		a[0] = 15-a[1]-a[2]-a[3]-a[4]-a[5]-a[6]-a[7];
 		conv = convert(a);
 		getdist(conv, arr, dist);
-	//	for (int i=0; i<30; ++i)
-	//		cout << dist[i] << ' ';
-	//	cout << endl;
 		k = 0;
 		while (dist[k] < 0.000001) 
 			++k;

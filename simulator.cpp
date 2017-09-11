@@ -396,49 +396,8 @@ int main() {
 			++k;
 		}
 	}
-	/*int pips, checkers, pct;
-	float exp_val;
-	float probs[32];
-	int div;
-	while (true) {
-		cout << "How many pips left?";
-		cin >> pips;
-		cout << "How many checkers left?";
-		cin >> checkers;
-		div = 0;
-		exp_val = 0;
-		for (int i=0; i<MAX_ROLLS+2; ++i)
-			probs[i] = 0;
-		for (int i=0; i<54264; ++i) {
-			unconvert(i, a);
-			if (a[0] != 15-checkers)
-				continue;
-			pct = 0;
-			for (int i=1; i<7; ++i)
-				pct += i*a[i];
-			if (pct != pips) continue;
-			++div;
-			exp_val += expval[i];
-			for (int j=0; j<MAX_ROLLS; ++j) {
-				probs[j] += ctprobptrs[i][j];
-			}
-		}
-		exp_val /= div;
-		for (int j=0; j<MAX_ROLLS; ++j)
-			probs[j] /= div;
-		cout << "expected number of rolls: " << fixed << setprecision(6) << exp_val << endl;
-		k = 0;
-		while (probs[k] < 0.000001) 
-			++k;
-		while (probs[k] > 0.000001) {
-			cout << "P(# rolls = " << k << ") = " << fixed << setprecision(6) << probs[k] << endl;
-			++k;
-		}
-	}*/
+	
 	delete[] expval;
 	delete[] ctprobs;
 	delete[] ctprobptrs;
-	/*for (int i=0; i<54624; ++i)
-		delete[] ctprobs[i];*/
-	//delete[] ctprobs;
 }
